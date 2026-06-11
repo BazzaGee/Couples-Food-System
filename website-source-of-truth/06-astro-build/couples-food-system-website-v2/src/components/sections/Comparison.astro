@@ -1,0 +1,83 @@
+---
+import comparison from '../../data/comparison.json';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title = 'Why Sunday Morning?', subtitle = 'While other apps focus on calories and macros, we focus on the ritual of connection. Discover how we transform daily chores into shared moments.' } = Astro.props;
+---
+
+<section class="py-xl md:py-32">
+  <div class="max-w-7xl mx-auto px-container-padding">
+    <div class="text-center mb-xl">
+      <h1 class="font-h1-mobile md:font-h1 text-h1-mobile md:text-h1 text-on-surface mb-md">{title}</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">{subtitle}</p>
+    </div>
+
+    <!-- Bento Grid Comparison -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter lg:gap-xl">
+      <!-- Bento Item 1: Real-Time Collaboration -->
+      <div class="md:col-span-8 bg-[#F5F0E6] rounded-[24px] p-lg border border-outline-variant bento-glow min-h-[300px] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-base mb-sm">
+            <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            <span class="font-label-caps text-secondary uppercase">Relationship-First</span>
+          </div>
+          <h2 class="font-h2 text-h2 text-primary mb-md">Shared Intentions, Not Solitary Chores</h2>
+          <p class="font-body-md text-on-surface-variant max-w-lg">
+            Our platform is built for two. Real-time presence indicators show when your partner is browsing recipes or adding to the shopping list, making it a collaborative dance rather than a solo burden.
+          </p>
+        </div>
+      </div>
+      <!-- Bento Item 2: AI vs Traditional -->
+      <div class="md:col-span-4 bg-surface-container-high rounded-[24px] p-lg border border-outline-variant flex flex-col items-center text-center justify-center space-y-md">
+        <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+        <h3 class="font-h3 text-h3 text-on-surface">Adaptive AI Meal Generation</h3>
+        <p class="font-body-sm text-on-surface-variant">
+          Forget manual entry. Our AI learns your shared cravings and suggests meals based on what's already in your pantry.
+        </p>
+        <div class="w-full h-1 bg-outline-variant rounded-full overflow-hidden">
+          <div class="w-3/4 h-full bg-primary transition-all duration-1000"></div>
+        </div>
+        <span class="font-label-caps text-primary">75% Less Planning Time</span>
+      </div>
+      <!-- Comparison Table -->
+      <div class="md:col-span-12 mt-xl">
+        <div class="bg-white/50 backdrop-blur-sm rounded-[24px] border border-outline-variant overflow-hidden shadow-sm">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-surface-container-low border-b border-outline-variant">
+                  <th class="p-lg font-h3 text-h3 text-primary">The Experience</th>
+                  <th class="p-lg font-h3 text-h3 text-primary w-1/3">Couples Food System</th>
+                  <th class="p-lg font-h3 text-h3 text-on-surface-variant/50 w-1/3">Typical Apps</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant">
+                {comparison.comparisons.slice(0, 5).map((item) => (
+                  <tr>
+                    <td class="p-lg">
+                      <p class="font-body-md font-semibold text-on-surface">{item.feature}</p>
+                      <p class="font-body-sm text-on-surface-variant">{item.description}</p>
+                    </td>
+                    <td class="p-lg">
+                      <div class="flex items-center gap-base text-primary font-medium">
+                        <span class="material-symbols-outlined">check_circle</span>
+                        {item.weDo ? 'Yes' : 'No'}
+                      </div>
+                    </td>
+                    <td class="p-lg text-on-surface-variant/60 font-body-sm italic">
+                      {item.othersDo ? 'Yes' : 'No'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

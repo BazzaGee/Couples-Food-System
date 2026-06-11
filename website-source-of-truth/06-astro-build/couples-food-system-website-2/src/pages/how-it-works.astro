@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import Waitlist from '../components/sections/Waitlist.astro';
+import WaitlistForm from '../components/forms/WaitlistForm.astro';
+---
+
+<BaseLayout title="How It Works | Couples Food System" description="From plan to plate in 5 steps. We've streamlined the entire process so you spend less time planning and more time enjoying dinner together.">
+  <section class="pt-20 pb-xl px-container-padding max-w-3xl mx-auto">
+    <div class="text-center mb-xl">
+      <h1 class="font-h1-mobile text-h1-mobile md:font-h1 md:text-h1 text-primary mb-md">How Sunday Morning Works</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+        Transform the chaos of meal planning into a serene, shared ritual. Our five-step method is designed to bring you closer through the art of nourishment.
+      </p>
+    </div>
+
+    <HowItWorks />
+
+    <!-- Emotional Benefits Bento Grid -->
+    <section class="mt-32 mb-xl">
+      <h2 class="font-h2 text-h2 text-primary text-center mb-xl">More Than Just Food</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+        <div class="bg-surface-container-high p-lg rounded-xl border border-outline-variant">
+          <span class="material-symbols-outlined text-secondary text-4xl mb-md">spa</span>
+          <h4 class="font-h3 text-h3 text-primary mb-sm">Zero Decision Fatigue</h4>
+          <p class="font-body-md text-body-md text-on-surface-variant">Eliminate the daily stress of deciding what to eat. Reclaim 5+ hours of mental energy every week.</p>
+        </div>
+        <div class="bg-surface-container-high p-lg rounded-xl border border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-4xl mb-md">favorite</span>
+          <h4 class="font-h3 text-h3 text-primary mb-sm">Deepened Connection</h4>
+          <p class="font-body-md text-body-md text-on-surface-variant">Turn the most routine part of your day into an intentional collaborative experience that builds intimacy.</p>
+        </div>
+        <div class="md:col-span-2 bg-primary-container p-xl rounded-xl text-on-primary-container relative overflow-hidden">
+          <div class="relative z-10">
+            <h4 class="font-h2 text-h2 mb-md">Shared Ritual, Shared Life</h4>
+            <p class="font-body-lg text-body-lg max-w-lg">When you stop fighting over groceries, you start enjoying the meal. Our system isn't about recipes—it's about the rhythm of your home.</p>
+          </div>
+          <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="mt-32 text-center bg-surface-container-highest p-xl rounded-3xl border border-primary/20">
+      <h2 class="font-h1-mobile text-h1-mobile text-primary mb-md">Ready for a Calm Kitchen?</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-xl">Our beta is currently by-invite. Join the waitlist to be first in line for the next cohort of couples.</p>
+      <WaitlistForm />
+      <p class="mt-md text-body-sm text-on-surface-variant opacity-70">Join 1,200+ couples already in the beta.</p>
+    </section>
+  </section>
+</BaseLayout>

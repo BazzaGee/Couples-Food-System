@@ -1,0 +1,21 @@
+---
+const formspreeEndpoint = 'https://formspree.io/f/barrydgrottis@gmail.com';
+---
+
+<form action={formspreeEndpoint} method="POST" class="flex flex-col gap-md">
+  <div class="flex flex-col gap-xs">
+    <label class="font-label-caps text-on-surface-variant ml-xs">YOUR NAME</label>
+    <input class="bg-[#f5f0e6] border border-[#e5e1da] rounded-xl px-md py-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline/50" type="text" name="name" id="name" required placeholder="Alex & Jordan" />
+  </div>
+  <div class="flex flex-col gap-xs">
+    <label class="font-label-caps text-on-surface-variant ml-xs">EMAIL ADDRESS</label>
+    <input class="bg-[#f5f0e6] border border-[#e5e1da] rounded-xl px-md py-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline/50" type="email" name="email" id="contact_email" required placeholder="hello@ourhome.com" />
+  </div>
+  <div class="flex flex-col gap-xs">
+    <label class="font-label-caps text-on-surface-variant ml-xs">MESSAGE</label>
+    <textarea class="bg-[#f5f0e6] border border-[#e5e1da] rounded-xl px-md py-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline/50" name="message" id="message" rows="4" required placeholder="Tell us about your kitchen ritual..."></textarea>
+  </div>
+  <button class="bg-primary text-on-primary py-md px-xl rounded-full font-h3 hover:opacity-90 active:scale-95 transition-all w-full md:w-fit self-end" type="submit">
+    Send Message
+  </button>
+</form>

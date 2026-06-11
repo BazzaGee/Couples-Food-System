@@ -1,0 +1,39 @@
+---
+const testimonials = [
+  { text: "Finally, a system that understands we have different goals without making us cook two entirely different meals.", name: "Sarah & Mark" },
+  { text: "The 'What's for dinner' argument used to last an hour. Now it's a 30-second tap.", name: "Alex & James" }
+];
+---
+
+<section class="py-xl md:py-32 bg-surface-container-high/50">
+  <div class="max-w-7xl mx-auto px-container-padding">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+      <div class="grid grid-cols-2 gap-md">
+        <div class="p-lg bg-surface-container-lowest rounded-2xl border border-outline-variant transform rotate-[-2deg]">
+          <p class="font-body-sm italic text-on-surface-variant">"{testimonials[0].text}"</p>
+          <p class="mt-md font-label-caps text-primary">— {testimonials[0].name}</p>
+        </div>
+        <div class="p-lg bg-surface-container-lowest rounded-2xl border border-outline-variant transform rotate-[3deg] mt-xl">
+          <p class="font-body-sm italic text-on-surface-variant">"{testimonials[1].text}"</p>
+          <p class="mt-md font-label-caps text-primary">— {testimonials[1].name}</p>
+        </div>
+      </div>
+      <div class="md:pl-xl">
+        <h2 class="font-h2 text-h2 mb-md">Join the kitchen revolution.</h2>
+        <p class="text-body-lg text-on-surface-variant mb-lg">
+          We're onboarding couples slowly to ensure the highest quality experience. Early access members get lifetime "Founding Partners" status.
+        </p>
+        <div class="flex items-center gap-xl">
+          <div>
+            <span class="text-h2 font-h1 text-secondary">2.4k+</span>
+            <p class="font-label-caps text-outline">Active Couples</p>
+          </div>
+          <div>
+            <span class="text-h2 font-h1 text-primary">120k+</span>
+            <p class="font-label-caps text-outline">Meals Shared</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

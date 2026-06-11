@@ -1,0 +1,35 @@
+---
+interface Props {
+  badge?: string;
+  badgeIcon?: string;
+  headline: string;
+  subheadline: string;
+  ctaPrimaryText?: string;
+  ctaSecondaryText?: string;
+}
+
+const { badge, badgeIcon = 'favorite', headline, subheadline, ctaPrimaryText = 'Join Free Beta Waitlist', ctaSecondaryText } = Astro.props;
+---
+
+<section class="relative px-container-padding py-xl md:py-32 hero-pattern">
+  <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+    {badge && (
+      <div class="mb-lg inline-flex items-center gap-base bg-secondary-container/30 border border-secondary px-md py-xs rounded-full">
+        <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">{badgeIcon}</span>
+        <span class="font-label-caps text-on-secondary-container">{badge}</span>
+      </div>
+    )}
+    <h1 class="font-h1-mobile md:font-h1 text-h1-mobile md:text-h1 text-on-surface max-w-4xl mb-md">
+      {headline}
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-xl">
+      {subheadline}
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-md">
+      <a href="#waitlist" class="btn-primary">{ctaPrimaryText}</a>
+      {ctaSecondaryText && (
+        <a href="/how-it-works" class="btn-secondary">{ctaSecondaryText}</a>
+      )}
+    </div>
+  </div>
+</section>

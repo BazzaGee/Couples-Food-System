@@ -1,0 +1,54 @@
+---
+import features from '../../data/features.json';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title = 'Built for Co-Living', subtitle = 'Simple tools that respect your relationship dynamics.' } = Astro.props;
+---
+
+<section class="py-xl md:py-32">
+  <div class="max-w-7xl mx-auto px-container-padding">
+    <div class="text-center mb-xl">
+      <h2 class="font-h2 text-h2 text-on-surface">{title}</h2>
+      <p class="text-on-surface-variant">{subtitle}</p>
+    </div>
+    <div class="bento-grid">
+      <!-- Feature 1: Adaptive Cooking -->
+      <div class="bento-item-1 bg-surface-container-highest p-xl rounded-[24px] border border-outline-variant flex flex-col justify-between">
+        <div>
+          <span class="material-symbols-outlined text-primary text-4xl mb-md">dynamic_form</span>
+          <h3 class="font-h3 text-h3 mb-base">{features.features[0].title}</h3>
+          <p class="text-on-surface-variant">{features.features[0].shortDescription}</p>
+        </div>
+      </div>
+      <!-- Feature 2: Real-Time Sync -->
+      <div class="bento-item-2 bg-secondary-container/20 p-xl rounded-[24px] border border-outline-variant flex flex-col justify-between">
+        <div>
+          <span class="material-symbols-outlined text-secondary text-4xl mb-md">sync</span>
+          <h3 class="font-h3 text-h3 mb-base">{features.features[1].title}</h3>
+          <p class="text-on-surface-variant">{features.features[1].shortDescription}</p>
+        </div>
+      </div>
+      <!-- Feature 3: Pantry AI -->
+      <div class="bento-item-3 bg-surface-container-low p-xl rounded-[24px] border border-outline-variant">
+        <span class="material-symbols-outlined text-tertiary text-4xl mb-md">psychology</span>
+        <h3 class="font-h3 text-h3 mb-base">{features.features[2].title}</h3>
+        <p class="text-on-surface-variant">{features.features[2].shortDescription}</p>
+      </div>
+      <!-- Feature 4: Collaborative Planning -->
+      <div class="bento-item-4 bg-primary-container/10 p-xl rounded-[24px] border border-primary/20 relative overflow-hidden group">
+        <div class="relative z-10">
+          <span class="material-symbols-outlined text-primary text-4xl mb-md">family_history</span>
+          <h3 class="font-h3 text-h3 mb-base">{features.features[3].title}</h3>
+          <p class="text-on-surface-variant max-w-md">{features.features[3].shortDescription}</p>
+        </div>
+        <div class="absolute right-[-50px] bottom-[-50px] opacity-10 group-hover:scale-110 transition-transform duration-700">
+          <span class="material-symbols-outlined text-[200px]">volunteer_activism</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import features from '../../data/features.json';
+import Waitlist from '../../components/sections/Waitlist.astro';
+import WaitlistForm from '../../components/forms/WaitlistForm.astro';
+
+const feature = features.features.find(f => f.id === 'pantry-ai')!;
+---
+
+<BaseLayout title="Pantry-First AI | Couples Food System" description="Tell the app what you have, and our AI suggests perfect meals to reduce waste and save a trip to the store.">
+  <section class="py-20 max-w-4xl mx-auto px-6">
+    <a href="/features" class="text-primary hover:opacity-80 mb-8 inline-block font-medium flex items-center gap-xs">
+      <span class="material-symbols-outlined text-lg">arrow_back</span> Back to all features
+    </a>
+    <div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant p-8 md:p-16 shadow-sm">
+      <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 font-h1">{feature.title}</h1>
+      <p class="text-xl text-on-surface-variant leading-relaxed mb-10">{feature.longDescription}</p>
+
+      <div class="bg-surface-container-highest rounded-xl aspect-video w-full flex items-center justify-center border border-outline-variant mb-10">
+        <span class="text-on-surface-variant/50">Pantry AI Interface</span>
+      </div>
+
+      <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant mb-10">
+        <p class="text-lg text-on-surface italic text-center">"We have chicken, rice, spinach, and half an onion."</p>
+        <p class="text-center text-on-surface-variant mt-2">Natural language input → AI understands → Meals generated</p>
+      </div>
+
+      <div class="text-lg text-on-surface-variant space-y-6">
+        <p>
+          Stop staring into the fridge wondering what to cook. Tell Couples Food System what you have, and our AI generates meal suggestions that use your existing ingredients. Type or dictate naturally.
+        </p>
+        <p>
+          The AI understands ingredient compatibility, nutritional profiles, cooking methods, time constraints, multi-person dietary goals, and portion mathematics — all simultaneously.
+        </p>
+        <p>
+          Less waste, fewer trips to the store, more money in your pocket. Your fridge just became a menu.
+        </p>
+      </div>
+
+      <ul class="mt-10 space-y-3">
+        {feature.benefits.map((benefit) => (
+          <li class="flex items-start gap-3 text-lg text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary w-6 h-6 flex-shrink-0 mt-0.5">check_circle</span>
+            {benefit}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Waitlist>
+    <WaitlistForm />
+  </Waitlist>
+</BaseLayout>

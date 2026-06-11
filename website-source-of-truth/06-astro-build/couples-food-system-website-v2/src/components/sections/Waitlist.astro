@@ -1,0 +1,23 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+}
+
+const { title = 'Start your ritual today.', subtitle = 'Ready to end the food arguments? Secure your spot in the next beta cohort.', ctaText = 'Get Early Access' } = Astro.props;
+---
+
+<section id="waitlist" class="py-xl md:py-32">
+  <div class="max-w-5xl mx-auto px-container-padding">
+    <div class="bg-primary text-on-primary p-xl md:p-32 rounded-[48px] text-center shadow-2xl relative overflow-hidden">
+      <!-- Decor elements -->
+      <div class="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+      <h2 class="font-h1-mobile md:font-h1 text-h1-mobile md:text-h1 mb-lg relative z-10">{title}</h2>
+      <p class="font-body-lg text-body-lg mb-xl opacity-90 relative z-10 max-w-2xl mx-auto">{subtitle}</p>
+      <slot />
+      <p class="mt-lg font-body-sm text-body-sm opacity-70">Next cohort starts soon. Limited seats available.</p>
+    </div>
+  </div>
+</section>

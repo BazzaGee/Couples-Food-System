@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import features from '../../data/features.json';
+import Waitlist from '../../components/sections/Waitlist.astro';
+import WaitlistForm from '../../components/forms/WaitlistForm.astro';
+
+const feature = features.features.find(f => f.id === 'meal-planning')!;
+---
+
+<BaseLayout title="Collaborative Meal Planning | Couples Food System" description="Plan your entire week in one tap. AI creates a shared meal plan that respects both partners' dietary preferences.">
+  <section class="py-20 max-w-4xl mx-auto px-6">
+    <a href="/features" class="text-primary hover:opacity-80 mb-8 inline-block font-medium flex items-center gap-xs">
+      <span class="material-symbols-outlined text-lg">arrow_back</span> Back to all features
+    </a>
+    <div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant p-8 md:p-16 shadow-sm">
+      <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 font-h1">{feature.title}</h1>
+      <p class="text-xl text-on-surface-variant leading-relaxed mb-10">{feature.longDescription}</p>
+
+      <div class="bg-surface-container-highest rounded-xl aspect-video w-full flex items-center justify-center border border-outline-variant mb-10">
+        <span class="text-on-surface-variant/50">Shared Weekly Calendar Interface</span>
+      </div>
+
+      <div class="text-lg text-on-surface-variant space-y-6">
+        <p>
+          Plan your entire week in one tap. Our AI creates a shared meal plan that respects both partners' dietary preferences and goals. Missing ingredients automatically populate your shared grocery list.
+        </p>
+        <p>
+          Both partners see and edit the same plan in real-time. Sunday planning becomes a 5-minute conversation, not an hour-long negotiation.
+        </p>
+        <p>
+          The "we" framing is throughout — this isn't your meal plan or your partner's meal plan. It's our meal plan, decided together.
+        </p>
+      </div>
+
+      <ul class="mt-10 space-y-3">
+        {feature.benefits.map((benefit) => (
+          <li class="flex items-start gap-3 text-lg text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary w-6 h-6 flex-shrink-0 mt-0.5">check_circle</span>
+            {benefit}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Waitlist>
+    <WaitlistForm />
+  </Waitlist>
+</BaseLayout>

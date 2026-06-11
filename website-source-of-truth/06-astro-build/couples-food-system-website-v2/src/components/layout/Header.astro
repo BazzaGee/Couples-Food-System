@@ -1,0 +1,74 @@
+---
+const navLinks = [
+  { label: 'Our Ritual', href: '/features' },
+  { label: 'Shared Kitchen', href: '/how-it-works' },
+  { label: 'Compare', href: '/compare' },
+  { label: 'The Story', href: '/about' },
+  { label: 'FAQ', href: '/faq' }
+];
+---
+
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md">
+  <nav class="flex items-center justify-between px-container-padding py-md max-w-7xl mx-auto w-full">
+    <div class="flex items-center gap-sm">
+      <button class="md:hidden text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200" id="menu-trigger" aria-label="Toggle Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <a href="/" class="text-h3 font-h3 text-primary tracking-tight">Couples Food System</a>
+    </div>
+    <div class="hidden md:flex items-center gap-xl">
+      {navLinks.map((link) => (
+        <a class="text-on-surface-variant hover:opacity-80 transition-opacity font-body-sm" href={link.href}>{link.label}</a>
+      ))}
+      <button class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-caps hover:opacity-90 active:scale-95 transition-all">
+        Join Free Beta
+      </button>
+    </div>
+    <button class="md:hidden bg-primary text-on-primary px-lg py-sm rounded-full font-label-caps active:scale-95 transition-transform duration-200">
+      Join Free Beta
+    </button>
+  </nav>
+</header>
+
+<!-- Navigation Drawer -->
+<div class="fixed inset-0 z-[60] hidden" id="side-nav">
+  <div class="absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity" id="nav-overlay"></div>
+  <aside class="relative h-full w-80 bg-surface flex flex-col gap-base py-xl shadow-xl transform -translate-x-full transition-transform duration-300">
+    <div class="px-xl mb-xl">
+      <h2 class="text-h2 font-h2 text-primary">Sunday Morning</h2>
+    </div>
+    <nav class="flex flex-col">
+      {navLinks.map((link) => (
+        <a class="text-on-surface-variant px-4 py-3 mx-2 font-body-lg text-body-lg flex items-center gap-md hover:bg-surface-container-high rounded-full transition-colors" href={link.href}>
+          <span class="material-symbols-outlined">{link.label === 'Our Ritual' ? 'auto_awesome' : link.label === 'Shared Kitchen' ? 'restaurant' : link.label === 'Compare' ? 'balance' : link.label === 'The Story' ? 'history_edu' : 'help'}</span>
+          {link.label}
+        </a>
+      ))}
+      <a class="bg-primary-container text-on-primary-container rounded-full mx-2 px-4 py-3 font-body-lg text-body-lg flex items-center gap-md" href="#waitlist">
+        <span class="material-symbols-outlined">edit_calendar</span>
+        Beta Access
+      </a>
+    </nav>
+  </aside>
+</div>
+
+<script>
+  const menuTrigger = document.getElementById('menu-trigger');
+  const sideNav = document.getElementById('side-nav');
+  const navOverlay = document.getElementById('nav-overlay');
+  const drawer = sideNav?.querySelector('aside');
+
+  function toggleNav() {
+    const isOpen = !sideNav?.classList.contains('hidden');
+    if (isOpen) {
+      drawer?.classList.add('-translate-x-full');
+      setTimeout(() => sideNav?.classList.add('hidden'), 300);
+    } else {
+      sideNav?.classList.remove('hidden');
+      setTimeout(() => drawer?.classList.remove('-translate-x-full'), 10);
+    }
+  }
+
+  menuTrigger?.addEventListener('click', toggleNav);
+  navOverlay?.addEventListener('click', toggleNav);
+</script>

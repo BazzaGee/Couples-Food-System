@@ -1,0 +1,31 @@
+---
+import features from '../../data/features.json';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'The Sunday Morning Ritual' } = Astro.props;
+const steps = features.steps;
+---
+
+<section class="py-xl md:py-32 bg-surface">
+  <div class="max-w-7xl mx-auto px-container-padding">
+    <h2 class="font-h2 text-h2 text-center mb-24">{title}</h2>
+    <div class="relative">
+      <!-- Progress Line -->
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant -translate-y-1/2"></div>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-xl">
+        {steps.map((step) => (
+          <div class="relative flex flex-col items-center text-center group">
+            <div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-primary flex items-center justify-center mb-md relative z-10 group-hover:scale-110 transition-transform">
+              <span class="text-h3 font-h3 text-primary step-number">{step.number}</span>
+            </div>
+            <h4 class="font-h3 text-h3 mb-xs">{step.title}</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

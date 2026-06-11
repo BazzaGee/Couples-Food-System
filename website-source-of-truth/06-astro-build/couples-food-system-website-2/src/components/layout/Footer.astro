@@ -1,0 +1,49 @@
+---
+const currentYear = new Date().getFullYear();
+const productLinks = [
+  { label: 'Our Ritual', href: '/features' },
+  { label: 'Shared Kitchen', href: '/how-it-works' },
+  { label: 'Compare', href: '/compare' }
+];
+const companyLinks = [
+  { label: 'The Story', href: '/about' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' }
+];
+---
+
+<footer class="w-full py-xl bg-surface-container border-t border-outline-variant">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-xl px-container-padding max-w-7xl mx-auto w-full">
+    <div class="space-y-md">
+      <span class="font-h3 text-h3 text-primary tracking-tight">Couples Food System</span>
+      <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+        © {currentYear} Sunday Morning Systems. Transform meal planning into a shared ritual.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-md">
+      <div class="flex flex-col gap-sm">
+        <span class="font-label-caps text-label-caps text-outline">PRODUCT</span>
+        {productLinks.map((link) => (
+          <a class="text-on-surface-variant text-body-sm hover:text-secondary transition-colors" href={link.href}>{link.label}</a>
+        ))}
+      </div>
+      <div class="flex flex-col gap-sm">
+        <span class="font-label-caps text-label-caps text-outline">SUPPORT</span>
+        {companyLinks.map((link) => (
+          <a class="text-on-surface-variant text-body-sm hover:text-secondary transition-colors" href={link.href}>{link.label}</a>
+        ))}
+      </div>
+    </div>
+    <div class="flex flex-col gap-md md:items-end">
+      <div class="flex gap-md">
+        <span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70">favorite</span>
+        <span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70">share</span>
+        <span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70">spa</span>
+      </div>
+      <div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant flex items-center gap-base">
+        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        <span class="text-body-sm text-on-surface-variant">Beta servers live</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import features from '../../data/features.json';
+import Waitlist from '../../components/sections/Waitlist.astro';
+import WaitlistForm from '../../components/forms/WaitlistForm.astro';
+
+const feature = features.features.find(f => f.id === 'adaptive-cooking')!;
+---
+
+<BaseLayout title="Adaptive Shared Cooking | Couples Food System" description="Cook one meal together, eat differently. Our AI generates adaptive plating instructions so both partners hit their unique goals.">
+  <section class="py-20 max-w-4xl mx-auto px-6">
+    <a href="/features" class="text-primary hover:opacity-80 mb-8 inline-block font-medium flex items-center gap-xs">
+      <span class="material-symbols-outlined text-lg">arrow_back</span> Back to all features
+    </a>
+    <div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant p-8 md:p-16 shadow-sm">
+      <span class="px-md py-xs bg-secondary-container text-on-secondary-container rounded-full text-label-caps font-label-caps mb-6 inline-block">Signature Feature</span>
+      <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 font-h1">{feature.title}</h1>
+      <p class="text-xl text-on-surface-variant leading-relaxed mb-10">{feature.longDescription}</p>
+
+      <div class="bg-surface-container-highest rounded-xl aspect-video w-full flex items-center justify-center border border-outline-variant mb-10">
+        <span class="text-on-surface-variant/50">App UI: Splitting one pan into two distinct plates</span>
+      </div>
+
+      <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant mb-10">
+        <h3 class="text-xl font-semibold text-on-surface mb-6">The Adaptive Plating Example</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant">
+            <p class="font-semibold text-on-surface mb-2">{feature.example.partnerA.name}</p>
+            <p class="text-sm text-on-surface-variant mb-1">Goal: {feature.example.partnerA.goal}</p>
+            <p class="text-sm text-on-surface-variant mb-3">~{feature.example.partnerA.calories} cal</p>
+            <p class="text-on-surface">{feature.example.partnerA.plate}</p>
+          </div>
+          <div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant">
+            <p class="font-semibold text-on-surface mb-2">{feature.example.partnerB.name}</p>
+            <p class="text-sm text-on-surface-variant mb-1">Goal: {feature.example.partnerB.goal}</p>
+            <p class="text-sm text-on-surface-variant mb-3">~{feature.example.partnerB.calories} cal</p>
+            <p class="text-on-surface">{feature.example.partnerB.plate}</p>
+          </div>
+        </div>
+        <p class="text-center text-on-surface-variant mt-6 font-medium">Same stir-fry. Same pan. Different plates.</p>
+      </div>
+
+      <div class="text-lg text-on-surface-variant space-y-6">
+        <p>
+          When you share a life, you share meals. But traditional meal planning apps treat everyone as an isolated individual. They expect you to either abandon your goals to eat the same thing, or cook completely separate dinners.
+        </p>
+        <p>
+          <strong>We solved this.</strong> You follow one single cooking workflow together. When the food is ready, the app provides visual, AI-adapted plating guides. It tells you exactly how much chicken to give Partner A, and how much extra rice to give Partner B.
+        </p>
+        <p>
+          It eliminates friction, reduces dishes, and brings the joy back to a shared kitchen.
+        </p>
+      </div>
+
+      <ul class="mt-10 space-y-3">
+        {feature.benefits.map((benefit) => (
+          <li class="flex items-start gap-3 text-lg text-on-surface-variant">
+            <span class="material-symbols-outlined text-primary w-6 h-6 flex-shrink-0 mt-0.5">check_circle</span>
+            {benefit}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Waitlist>
+    <WaitlistForm />
+  </Waitlist>
+</BaseLayout>

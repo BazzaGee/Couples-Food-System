@@ -1,0 +1,30 @@
+---
+import BaseHead from '../components/layout/BaseHead.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  schema?: object;
+}
+
+const { title, description, canonicalURL, ogImage, schema } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <BaseHead title={title} description={description} canonicalURL={canonicalURL} ogImage={ogImage} schema={schema} />
+  </head>
+  <body class="bg-surface font-body-md text-on-surface selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+    <Header />
+    <main class="pt-24 pb-xl">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
